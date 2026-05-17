@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="GDC 2026 最近公开视频中文导读：整理 30 条 GDC Vault 演讲视频，提供中文标题、摘要、要点、术语和来源链接。"
+      content="GDC 官方 YouTube 有字幕视频中文报告：只收录能取得 transcript 的 GDC 演讲、片段和 keynote。"
     />
-    <title>GDC 最近 30 条演讲视频中文导读</title>
+    <title>GDC 有字幕视频中文报告</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="masthead">
-        <p class="eyebrow">Game Developers Conference / 中文导读</p>
-        <h1>GDC 最近 30 条演讲视频</h1>
+        <p class="eyebrow">Game Developers Conference / YouTube transcript reports</p>
+        <h1>GDC 有字幕视频中文报告</h1>
         <p class="intro">
-          基于 GDC Vault 2026 免费公开视频整理。每条包含中文标题、原始标题、讲者、主题导读、学习要点、术语和官方来源链接，便于继续导入 NotebookLM 做深度翻译与报告。
+          只收录能从 YouTube 取得字幕/转写内容的 GDC 官方视频、演讲片段和 keynote。GDC Vault 只有简介、没有原文或字幕的链接不进入列表。
         </p>
       </div>
 
       <section class="control-panel" aria-label="资料库筛选">
         <label class="search-box">
           <span>搜索演讲、讲者、主题或关键词</span>
-          <input id="searchInput" type="search" placeholder="例如：AI、音频、Discord、Mac、团队领导" autocomplete="off" />
+          <input id="searchInput" type="search" placeholder="例如：音频、QA、众筹、Navmesh、Keynote" autocomplete="off" />
         </label>
 
         <div id="filterRow" class="filter-row" aria-label="类别筛选"></div>
@@ -34,11 +34,11 @@
       <section class="stats-strip" aria-label="资料统计">
         <article>
           <strong id="talkCount">0</strong>
-          <span>演讲视频</span>
+          <span>有内容条目</span>
         </article>
         <article>
           <strong id="yearRange">-</strong>
-          <span>来源年份</span>
+          <span>YouTube 批次</span>
         </article>
         <article>
           <strong id="categoryCount">0</strong>
@@ -50,21 +50,21 @@
         <div class="section-heading">
           <h2 id="workflowTitle">整理方法</h2>
           <p>
-            按 qiaomu-anything-to-notebooklm 的思路处理：先从 GDC Vault 的公开公开视频页提取可访问内容，再整理成中文报告、关键观点和术语表。当前公开页未暴露字幕或逐字稿，因此页面不发布逐字全文翻译。
+            按同样的内容整理流程处理，但把来源切换到 YouTube transcript：先拉取 GDC 官方 YouTube 最新视频，再过滤掉没有字幕、没有实质内容或不是演讲/片段的链接，最后整理成中文报告。
           </p>
         </div>
         <ol class="workflow-list">
-          <li>筛选公开可访问的 GDC 演讲视频，保留官方来源链接。</li>
-          <li>抓取视频详情页里的 session 信息，补充中文标题和主题分类。</li>
-          <li>为每条生成可展开的视频内容报告、学习要点和中英术语。</li>
-          <li>如后续拿到授权字幕或逐字稿，可继续替换为全文翻译版。</li>
+          <li>从 GDC 官方 YouTube RSS 获取最近公开视频。</li>
+          <li>用 ytscribe 检查字幕/转写，字幕禁用或抓取失败的条目直接剔除。</li>
+          <li>剔除颁奖、主持人公告、参会小贴士等非演讲内容。</li>
+          <li>基于 transcript 生成中文报告、关键观点和术语表。</li>
         </ol>
       </section>
 
       <section class="timeline-section" aria-labelledby="timelineTitle">
         <div class="section-heading">
           <h2 id="timelineTitle">时间线</h2>
-          <p>当前批次来自 GDC 2026 免费公开视频。点击年份可快速筛选。</p>
+          <p>当前批次来自 GDC 官方 YouTube 最近公开视频中有 transcript 的演讲内容。</p>
         </div>
         <div id="timeline" class="timeline"></div>
       </section>
@@ -81,11 +81,11 @@
       <section class="source-section" id="sourceList" aria-labelledby="sourceTitle">
         <div class="section-heading">
           <h2 id="sourceTitle">来源与后续扩展</h2>
-          <p>条目优先链接到 GDC Vault 官方页面；YouTube 频道可用于查找公开片段和更新。</p>
+          <p>条目链接到 YouTube 原视频，并附 transcript 来源。没有字幕或无法取得内容的链接不会收录。</p>
         </div>
         <ul class="source-links">
-          <li><a href="https://gdcvault.com/free/gdc-26" target="_blank" rel="noreferrer">GDC Vault 2026 免费公开视频</a></li>
           <li><a href="https://www.youtube.com/channel/UC0JB7TSe49lg56u6qH8y_MQ" target="_blank" rel="noreferrer">GDC 官方 YouTube</a></li>
+          <li><a href="https://ytscribe.io/" target="_blank" rel="noreferrer">YouTube transcript 来源：ytscribe</a></li>
         </ul>
       </section>
     </main>
