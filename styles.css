@@ -219,11 +219,49 @@ code {
   margin-bottom: 14px;
 }
 
+.workflow-section,
 .timeline-section,
 .library-section,
 .source-section {
   max-width: 1180px;
   margin-top: 34px;
+}
+
+.workflow-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: workflow;
+}
+
+.workflow-list li {
+  position: relative;
+  min-height: 144px;
+  padding: 46px 14px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdfa;
+  color: #333a43;
+}
+
+.workflow-list li::before {
+  position: absolute;
+  top: 13px;
+  left: 14px;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--green);
+  color: #ffffff;
+  content: counter(workflow);
+  counter-increment: workflow;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 900;
 }
 
 .timeline {
@@ -377,6 +415,7 @@ code {
 }
 
 .source-button,
+.youlearn-button,
 .transcript-button {
   min-height: 38px;
   padding: 8px 11px;
@@ -388,6 +427,12 @@ code {
 .source-button {
   color: #ffffff;
   background: var(--ink);
+}
+
+.youlearn-button {
+  border: 1px solid var(--green);
+  color: var(--green);
+  background: #f1faf6;
 }
 
 .transcript-button {
@@ -426,6 +471,7 @@ code {
 @media (max-width: 820px) {
   .stats-strip,
   .talk-grid,
+  .workflow-list,
   .source-links {
     grid-template-columns: 1fr;
   }
