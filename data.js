@@ -306,6 +306,81 @@ const state = {
   query: ""
 };
 
+const youtubeDiscoveries = [
+  {
+    category: "游戏设计",
+    title: "Cursed Problems in Game Design",
+    query: "GDC Cursed Problems in Game Design",
+    why: "适合用 NotebookLM 整理“玩家承诺冲突”和系统设计取舍。"
+  },
+  {
+    category: "游戏设计",
+    title: "Twenty Years, Twenty Lessons Learned",
+    query: "GDC Twenty Years Twenty Lessons Learned Mark Rosewater",
+    why: "适合拆解长期设计经验、反馈循环和面向玩家的设计原则。"
+  },
+  {
+    category: "游戏设计",
+    title: "Designing Into the Breach",
+    query: "GDC Designing Into the Breach",
+    why: "适合研究小规则集、可读性、预测性和战术决策。"
+  },
+  {
+    category: "程序与技术",
+    title: "Building the AI of F.E.A.R.",
+    query: "GDC Building the AI of F.E.A.R. Goal Oriented Action Planning",
+    why: "适合做 GOAP、战斗 AI、可解释行为和调试工具的专题笔记。"
+  },
+  {
+    category: "程序与技术",
+    title: "Rendering and Tools Pipeline Talks",
+    query: "GDC rendering tools pipeline open world game",
+    why: "适合按渲染、工具链、内容管线和性能预算建立技术知识库。"
+  },
+  {
+    category: "音频",
+    title: "DOOM Behind the Music",
+    query: "GDC DOOM Behind the Music Mick Gordon",
+    why: "适合提取交互音乐、声音身份、混音和实验流程。"
+  },
+  {
+    category: "视觉艺术",
+    title: "Overwatch Character Art and Visual Design",
+    query: "GDC Overwatch character art visual design",
+    why: "适合整理角色轮廓、视觉清晰度、材质语言和英雄幻想。"
+  },
+  {
+    category: "制作管理",
+    title: "Open World Production and QA",
+    query: "GDC open world production QA Horizon Zero Dawn",
+    why: "适合归纳开放世界测试、生产风险和跨团队协作方法。"
+  },
+  {
+    category: "叙事",
+    title: "Interactive Fiction and Narrative Design",
+    query: "GDC interactive fiction narrative design inkle 80 Days",
+    why: "适合整理分支叙事、状态一致性和文本系统。"
+  },
+  {
+    category: "UX",
+    title: "Game UX and Onboarding",
+    query: "GDC game UX onboarding player experience",
+    why: "适合沉淀新手引导、可用性测试和信息架构。"
+  },
+  {
+    category: "商业运营",
+    title: "Free-to-Play and Live Operations",
+    query: "GDC free to play live operations game business",
+    why: "适合把商业模型、留存、信任和服务型运营拆成学习专题。"
+  },
+  {
+    category: "工具链",
+    title: "NotebookLM Source Building Queue",
+    query: "GDC game development conference talk tools pipeline design",
+    why: "适合批量挑选视频，再通过 qiaomu-anything-to-notebooklm 建个人资料库。"
+  }
+];
+
 const talkGrid = document.querySelector("#talkGrid");
 const searchInput = document.querySelector("#searchInput");
 const resultMeta = document.querySelector("#resultMeta");
@@ -313,6 +388,7 @@ const emptyState = document.querySelector("#emptyState");
 const timeline = document.querySelector("#timeline");
 const talkCount = document.querySelector("#talkCount");
 const yearRange = document.querySelector("#yearRange");
+const discoverGrid = document.querySelector("#discoverGrid");
 
 function normalize(value) {
   return String(value).toLowerCase().trim();
@@ -386,6 +462,20 @@ function renderTimeline() {
   yearRange.textContent = `${years[0]}-${years[years.length - 1]}`;
 }
 
+function renderDiscoveries() {
+  discoverGrid.innerHTML = youtubeDiscoveries.map((item) => {
+    const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(item.query)}`;
+    return `
+      <article class="discover-card">
+        <span class="badge">${item.category}</span>
+        <h3>${item.title}</h3>
+        <p>${item.why}</p>
+        <a href="${url}" target="_blank" rel="noreferrer">搜索 YouTube</a>
+      </article>
+    `;
+  }).join("");
+}
+
 document.querySelectorAll(".filter-chip").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll(".filter-chip").forEach((item) => item.classList.remove("is-active"));
@@ -410,4 +500,5 @@ timeline.addEventListener("click", (event) => {
 });
 
 renderTimeline();
+renderDiscoveries();
 render();
