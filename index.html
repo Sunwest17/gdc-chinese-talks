@@ -50,14 +50,14 @@
         <div class="section-heading">
           <h2 id="workflowTitle">整理方法</h2>
           <p>
-            先从 GDC Vault 的公开公开视频中提取最近一批条目，再按主题生成中文导读。后续如需完整报告，可把单条 GDC Vault 链接或 YouTube 链接导入 NotebookLM，继续生成全文翻译、摘要、术语表和 PPT。
+            按 qiaomu-anything-to-notebooklm 的思路处理：先从 GDC Vault 的公开公开视频页提取可访问内容，再整理成中文报告、关键观点和术语表。当前公开页未暴露字幕或逐字稿，因此页面不发布逐字全文翻译。
           </p>
         </div>
         <ol class="workflow-list">
           <li>筛选公开可访问的 GDC 演讲视频，保留官方来源链接。</li>
-          <li>为每条视频补充中文标题、主题分类和适合中文读者的导读。</li>
-          <li>提炼学习要点与中英术语，方便后续做报告或课程笔记。</li>
-          <li>需要深度处理时，再逐条导入 NotebookLM 生成完整翻译文档。</li>
+          <li>抓取视频详情页里的 session 信息，补充中文标题和主题分类。</li>
+          <li>为每条生成可展开的视频内容报告、学习要点和中英术语。</li>
+          <li>如后续拿到授权字幕或逐字稿，可继续替换为全文翻译版。</li>
         </ol>
       </section>
 
