@@ -398,6 +398,17 @@ code {
   font-size: 14px;
 }
 
+.transcript-meta {
+  margin-bottom: 0;
+  padding: 8px 10px;
+  border-left: 3px solid var(--green);
+  border-radius: 6px;
+  color: var(--muted);
+  background: #f5f1e8;
+  font-size: 13px;
+  font-weight: 800;
+}
+
 .deep-note {
   margin-bottom: 0;
   color: #29303a;
@@ -483,7 +494,7 @@ code {
 }
 
 .source-button,
-.transcript-button {
+.transcript-link {
   min-height: 38px;
   padding: 8px 11px;
   border-radius: 6px;
@@ -496,7 +507,7 @@ code {
   background: var(--ink);
 }
 
-.transcript-button {
+.transcript-link {
   border: 1px solid var(--line);
   color: var(--muted);
   background: #fbfaf7;
