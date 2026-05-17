@@ -356,7 +356,8 @@ function renderCard(talk) {
       <ul class="terms" aria-label="术语表">${terms}</ul>
       <div class="card-actions">
         <a class="source-button" href="${talk.source}" target="_blank" rel="noreferrer">${talk.sourceLabel}</a>
-        <span class="transcript-button" title="导入授权字幕或讲稿后可启用">全文译文：等待授权文本</span>
+        <a class="youlearn-button" href="https://www.youlearn.ai/" target="_blank" rel="noreferrer">YouLearn 辅助学习</a>
+        <span class="transcript-button" title="导入授权字幕或讲稿后可启用">授权全文译文：待导入</span>
       </div>
     </article>
   `;
