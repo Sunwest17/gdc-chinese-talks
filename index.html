@@ -5,39 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="GDC 历年代表性演讲中文资料站：按类别、年份和主题整理游戏开发演讲导读与来源。"
+      content="GDC 2026 最近公开视频中文导读：整理 30 条 GDC Vault 演讲视频，提供中文标题、摘要、要点、术语和来源链接。"
     />
-    <title>GDC 历年演讲中文资料站</title>
+    <title>GDC 最近 30 条演讲视频中文导读</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="masthead">
-        <p class="eyebrow">Game Developers Conference / 中文资料库</p>
-        <h1>GDC 历年代表性演讲</h1>
+        <p class="eyebrow">Game Developers Conference / 中文导读</p>
+        <h1>GDC 最近 30 条演讲视频</h1>
         <p class="intro">
-          精选 GDC Vault 与 GDC 官方公开资料中的代表性演讲，按设计、程序、音频、美术、制作、商业、叙事和 UX
-          分类整理。本站提供中文标题、深度导读、关键概念和原始来源链接；授权讲稿可继续导入全文翻译。
+          基于 GDC Vault 2026 免费公开视频整理。每条包含中文标题、原始标题、讲者、主题导读、学习要点、术语和官方来源链接，便于继续导入 NotebookLM 做深度翻译与报告。
         </p>
       </div>
 
       <section class="control-panel" aria-label="资料库筛选">
         <label class="search-box">
-          <span>搜索演讲、年份、讲者或关键词</span>
-          <input id="searchInput" type="search" placeholder="例如：DOOM、AI、叙事、2015" autocomplete="off" />
+          <span>搜索演讲、讲者、主题或关键词</span>
+          <input id="searchInput" type="search" placeholder="例如：AI、音频、Discord、Mac、团队领导" autocomplete="off" />
         </label>
 
-        <div class="filter-row" aria-label="类别筛选">
-          <button class="filter-chip is-active" type="button" data-category="全部">全部</button>
-          <button class="filter-chip" type="button" data-category="游戏设计">游戏设计</button>
-          <button class="filter-chip" type="button" data-category="程序与技术">程序与技术</button>
-          <button class="filter-chip" type="button" data-category="音频">音频</button>
-          <button class="filter-chip" type="button" data-category="视觉艺术">视觉艺术</button>
-          <button class="filter-chip" type="button" data-category="制作管理">制作管理</button>
-          <button class="filter-chip" type="button" data-category="商业运营">商业运营</button>
-          <button class="filter-chip" type="button" data-category="叙事">叙事</button>
-          <button class="filter-chip" type="button" data-category="UX">UX</button>
-        </div>
+        <div id="filterRow" class="filter-row" aria-label="类别筛选"></div>
       </section>
     </header>
 
@@ -45,58 +34,37 @@
       <section class="stats-strip" aria-label="资料统计">
         <article>
           <strong id="talkCount">0</strong>
-          <span>精选演讲</span>
+          <span>演讲视频</span>
         </article>
         <article>
           <strong id="yearRange">-</strong>
-          <span>覆盖年份</span>
+          <span>来源年份</span>
         </article>
         <article>
-          <strong>8</strong>
-          <span>知识类别</span>
+          <strong id="categoryCount">0</strong>
+          <span>主题类别</span>
         </article>
-      </section>
-
-      <section class="policy-note" aria-labelledby="policyTitle">
-        <div>
-          <h2 id="policyTitle">译文与 YouLearn 工作流</h2>
-          <p>
-            找不到授权时，不发布公开演讲的逐字全文译文。可用 YouLearn 读取原视频做个人学习，再把有权使用的字幕、讲稿或导出材料放入
-            <code>transcripts/</code>；站点可继续接入完整译文。当前页面提供中文深度导读、关键概念和 YouLearn 辅助学习入口。
-          </p>
-        </div>
-        <a class="ghost-link" href="#sourceList">查看来源</a>
       </section>
 
       <section class="workflow-section" aria-labelledby="workflowTitle">
         <div class="section-heading">
-          <h2 id="workflowTitle">NotebookLM / YouLearn 学习步骤</h2>
+          <h2 id="workflowTitle">整理方法</h2>
           <p>
-            这个流程使用 qiaomu-anything-to-notebooklm 的思路，把视频、网页和资料整理成个人学习库；公开页面只放索引和学习导读。
+            先从 GDC Vault 的公开公开视频中提取最近一批条目，再按主题生成中文导读。后续如需完整报告，可把单条 GDC Vault 链接或 YouTube 链接导入 NotebookLM，继续生成全文翻译、摘要、术语表和 PPT。
           </p>
         </div>
         <ol class="workflow-list">
-          <li>从下方 YouTube 搜索发现队列打开 GDC 官方或相关公开视频。</li>
-          <li>用 qiaomu-anything-to-notebooklm 收集视频链接、网页资料和可用附件，导入 NotebookLM。</li>
-          <li>在 NotebookLM 或 YouLearn 中生成中文学习稿：结构化观点、方法、术语和可复用清单。</li>
-          <li>若你拥有字幕/讲稿授权，再把全文译文接入站点的授权译文区域。</li>
+          <li>筛选公开可访问的 GDC 演讲视频，保留官方来源链接。</li>
+          <li>为每条视频补充中文标题、主题分类和适合中文读者的导读。</li>
+          <li>提炼学习要点与中英术语，方便后续做报告或课程笔记。</li>
+          <li>需要深度处理时，再逐条导入 NotebookLM 生成完整翻译文档。</li>
         </ol>
-      </section>
-
-      <section class="discover-section" aria-labelledby="discoverTitle">
-        <div class="section-heading">
-          <h2 id="discoverTitle">YouTube 搜索发现队列</h2>
-          <p>
-            这些条目按 GDC 常见学习主题组织，链接会打开 YouTube 搜索结果，便于你挑选官方 GDC 视频后导入 NotebookLM。
-          </p>
-        </div>
-        <div id="discoverGrid" class="discover-grid"></div>
       </section>
 
       <section class="timeline-section" aria-labelledby="timelineTitle">
         <div class="section-heading">
-          <h2 id="timelineTitle">年份时间线</h2>
-          <p>点击年份快速定位资料，观察 GDC 议题从单机设计、引擎技术到服务型游戏和跨学科制作的变化。</p>
+          <h2 id="timelineTitle">时间线</h2>
+          <p>当前批次来自 GDC 2026 免费公开视频。点击年份可快速筛选。</p>
         </div>
         <div id="timeline" class="timeline"></div>
       </section>
@@ -113,17 +81,11 @@
       <section class="source-section" id="sourceList" aria-labelledby="sourceTitle">
         <div class="section-heading">
           <h2 id="sourceTitle">来源与后续扩展</h2>
-          <p>条目优先链接到 GDC Vault 或 GDC 官方日程。后续可加入授权全文、字幕校对状态和双语术语表。</p>
+          <p>条目优先链接到 GDC Vault 官方页面；YouTube 频道可用于查找公开片段和更新。</p>
         </div>
         <ul class="source-links">
-          <li><a href="https://gdcvault.com/" target="_blank" rel="noreferrer">GDC Vault</a></li>
-          <li><a href="https://www.youtube.com/@Gdconf" target="_blank" rel="noreferrer">GDC 官方 YouTube</a></li>
-          <li><a href="https://schedule.gdconf.com/" target="_blank" rel="noreferrer">GDC 官方日程</a></li>
-          <li>
-            <a href="https://github.com/joeseesun/qiaomu-anything-to-notebooklm" target="_blank" rel="noreferrer">
-              qiaomu-anything-to-notebooklm
-            </a>
-          </li>
+          <li><a href="https://gdcvault.com/free/gdc-26" target="_blank" rel="noreferrer">GDC Vault 2026 免费公开视频</a></li>
+          <li><a href="https://www.youtube.com/channel/UC0JB7TSe49lg56u6qH8y_MQ" target="_blank" rel="noreferrer">GDC 官方 YouTube</a></li>
         </ul>
       </section>
     </main>
