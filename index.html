@@ -70,15 +70,27 @@
 
       <section class="workflow-section" aria-labelledby="workflowTitle">
         <div class="section-heading">
-          <h2 id="workflowTitle">YouLearn 辅助学习步骤</h2>
-          <p>这个流程用于生成个人学习材料或非逐字中文学习稿，不用于发布未授权完整译文。</p>
+          <h2 id="workflowTitle">NotebookLM / YouLearn 学习步骤</h2>
+          <p>
+            这个流程使用 qiaomu-anything-to-notebooklm 的思路，把视频、网页和资料整理成个人学习库；公开页面只放索引和学习导读。
+          </p>
         </div>
         <ol class="workflow-list">
-          <li>打开卡片里的官方来源，优先选择 GDC 官方 YouTube 或公开视频页面。</li>
-          <li>在 YouLearn 中导入视频链接，让它提取结构、主题和问答线索。</li>
-          <li>将结果整理成中文学习稿：保留观点、方法和术语，不逐字复刻演讲全文。</li>
+          <li>从下方 YouTube 搜索发现队列打开 GDC 官方或相关公开视频。</li>
+          <li>用 qiaomu-anything-to-notebooklm 收集视频链接、网页资料和可用附件，导入 NotebookLM。</li>
+          <li>在 NotebookLM 或 YouLearn 中生成中文学习稿：结构化观点、方法、术语和可复用清单。</li>
           <li>若你拥有字幕/讲稿授权，再把全文译文接入站点的授权译文区域。</li>
         </ol>
+      </section>
+
+      <section class="discover-section" aria-labelledby="discoverTitle">
+        <div class="section-heading">
+          <h2 id="discoverTitle">YouTube 搜索发现队列</h2>
+          <p>
+            这些条目按 GDC 常见学习主题组织，链接会打开 YouTube 搜索结果，便于你挑选官方 GDC 视频后导入 NotebookLM。
+          </p>
+        </div>
+        <div id="discoverGrid" class="discover-grid"></div>
       </section>
 
       <section class="timeline-section" aria-labelledby="timelineTitle">
@@ -107,6 +119,11 @@
           <li><a href="https://gdcvault.com/" target="_blank" rel="noreferrer">GDC Vault</a></li>
           <li><a href="https://www.youtube.com/@Gdconf" target="_blank" rel="noreferrer">GDC 官方 YouTube</a></li>
           <li><a href="https://schedule.gdconf.com/" target="_blank" rel="noreferrer">GDC 官方日程</a></li>
+          <li>
+            <a href="https://github.com/joeseesun/qiaomu-anything-to-notebooklm" target="_blank" rel="noreferrer">
+              qiaomu-anything-to-notebooklm
+            </a>
+          </li>
         </ul>
       </section>
     </main>
