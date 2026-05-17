@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="GDC 历年代表性演讲中文资料站：按类别、年份和主题整理游戏开发演讲导读与来源。"
+    />
+    <title>GDC 历年演讲中文资料站</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="masthead">
+        <p class="eyebrow">Game Developers Conference / 中文资料库</p>
+        <h1>GDC 历年代表性演讲</h1>
+        <p class="intro">
+          精选 GDC Vault 与 GDC 官方公开资料中的代表性演讲，按设计、程序、音频、美术、制作、商业、叙事和 UX
+          分类整理。本站提供中文标题、深度导读、关键概念和原始来源链接；授权讲稿可继续导入全文翻译。
+        </p>
+      </div>
+
+      <section class="control-panel" aria-label="资料库筛选">
+        <label class="search-box">
+          <span>搜索演讲、年份、讲者或关键词</span>
+          <input id="searchInput" type="search" placeholder="例如：DOOM、AI、叙事、2015" autocomplete="off" />
+        </label>
+
+        <div class="filter-row" aria-label="类别筛选">
+          <button class="filter-chip is-active" type="button" data-category="全部">全部</button>
+          <button class="filter-chip" type="button" data-category="游戏设计">游戏设计</button>
+          <button class="filter-chip" type="button" data-category="程序与技术">程序与技术</button>
+          <button class="filter-chip" type="button" data-category="音频">音频</button>
+          <button class="filter-chip" type="button" data-category="视觉艺术">视觉艺术</button>
+          <button class="filter-chip" type="button" data-category="制作管理">制作管理</button>
+          <button class="filter-chip" type="button" data-category="商业运营">商业运营</button>
+          <button class="filter-chip" type="button" data-category="叙事">叙事</button>
+          <button class="filter-chip" type="button" data-category="UX">UX</button>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="stats-strip" aria-label="资料统计">
+        <article>
+          <strong id="talkCount">0</strong>
+          <span>精选演讲</span>
+        </article>
+        <article>
+          <strong id="yearRange">-</strong>
+          <span>覆盖年份</span>
+        </article>
+        <article>
+          <strong>8</strong>
+          <span>知识类别</span>
+        </article>
+      </section>
+
+      <section class="policy-note" aria-labelledby="policyTitle">
+        <div>
+          <h2 id="policyTitle">全文翻译入口</h2>
+          <p>
+            若你提供已授权的字幕、讲稿或课程材料，可以放入 <code>transcripts/</code> 并在数据中标记授权状态，页面会显示完整译文。
+            对公开演讲，本站只做中文导读与出处索引，不抓取或发布逐字全文翻译。
+          </p>
+        </div>
+        <a class="ghost-link" href="#sourceList">查看来源</a>
+      </section>
+
+      <section class="timeline-section" aria-labelledby="timelineTitle">
+        <div class="section-heading">
+          <h2 id="timelineTitle">年份时间线</h2>
+          <p>点击年份快速定位资料，观察 GDC 议题从单机设计、引擎技术到服务型游戏和跨学科制作的变化。</p>
+        </div>
+        <div id="timeline" class="timeline"></div>
+      </section>
+
+      <section class="library-section" aria-labelledby="libraryTitle">
+        <div class="section-heading">
+          <h2 id="libraryTitle">演讲资料库</h2>
+          <p id="resultMeta">正在载入资料...</p>
+        </div>
+        <div id="talkGrid" class="talk-grid"></div>
+        <p id="emptyState" class="empty-state" hidden>没有找到匹配的演讲。试试换一个关键词或选择“全部”。</p>
+      </section>
+
+      <section class="source-section" id="sourceList" aria-labelledby="sourceTitle">
+        <div class="section-heading">
+          <h2 id="sourceTitle">来源与后续扩展</h2>
+          <p>条目优先链接到 GDC Vault 或 GDC 官方日程。后续可加入授权全文、字幕校对状态和双语术语表。</p>
+        </div>
+        <ul class="source-links">
+          <li><a href="https://gdcvault.com/" target="_blank" rel="noreferrer">GDC Vault</a></li>
+          <li><a href="https://www.youtube.com/@Gdconf" target="_blank" rel="noreferrer">GDC 官方 YouTube</a></li>
+          <li><a href="https://schedule.gdconf.com/" target="_blank" rel="noreferrer">GDC 官方日程</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="data.js"></script>
+  </body>
+</html>
