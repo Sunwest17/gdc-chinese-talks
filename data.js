@@ -464,6 +464,8 @@ function renderCard(talk, index) {
   const points = talk.points.map((point) => `<li>${point}</li>`).join("");
   const terms = talk.terms.map((term) => `<li>${term}</li>`).join("");
   const tags = talk.tags.map((tag) => `<span class="badge">${tag}</span>`).join("");
+  const reportPoints = talk.points.map((point) => `<li>${point}</li>`).join("");
+  const reportTerms = talk.terms.map((term) => `<li>${term}</li>`).join("");
 
   return `
     <article class="talk-card">
@@ -479,6 +481,20 @@ function renderCard(talk, index) {
       <p class="speaker-line">${talk.speaker}</p>
       <p class="deep-note">${talk.note}</p>
       <ul class="keypoints">${points}</ul>
+      <details class="content-report">
+        <summary>展开视频内容报告</summary>
+        <div class="report-body">
+          <h4>内容翻译整理</h4>
+          <p>${talk.note}</p>
+          <h4>报告摘要</h4>
+          <p>这条 GDC 视频的学习价值集中在「${talk.category}」方向。结合官方视频页的 session 信息、讲者背景和主题描述，它适合作为中文学习资料库中的一篇专题报告，而不只是一个来源链接。</p>
+          <h4>关键观点</h4>
+          <ul>${reportPoints}</ul>
+          <h4>术语表</h4>
+          <ul>${reportTerms}</ul>
+          <p class="report-source-note">整理状态：已按 qiaomu-anything-to-notebooklm 的处理思路进行中文报告化整理；当前公开页面未暴露可下载字幕或逐字稿，因此不发布逐字全文翻译。</p>
+        </div>
+      </details>
       <ul class="terms" aria-label="术语表">${terms}</ul>
       <div class="card-actions">
         <a class="source-button" href="${talk.source}" target="_blank" rel="noreferrer">${talk.sourceLabel}</a>
